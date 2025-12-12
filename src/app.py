@@ -82,7 +82,7 @@ activities = {
 
 @app.get("/")
 def root():
-    return RedirectResponse(url="/static/index.html")
+    return RedirectResponse(url="/static/index.html", status_code=302)
 
 
 @app.get("/activities")
@@ -106,3 +106,10 @@ def signup_for_activity(activity_name: str, email: str):
 
     activity["participants"].append(normalized_email)
     return {"message": f"Signed up {normalized_email} for {activity_name}"}
+
+
+if __name__ == "__main__":
+    import uvicorn
+
+    port = int(os.environ.get("PORT", "8000"))
+    uvicorn.run(app, host="0.0.0.0", port=port)

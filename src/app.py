@@ -108,6 +108,23 @@ def signup_for_activity(activity_name: str, email: str):
     return {"message": f"Signed up {normalized_email} for {activity_name}"}
 
 
+@app.delete("/activities/{activity_name}/signup")
+def unregister_from_activity(activity_name: str, email: str):
+    """Unregister a student from an activity"""
+    if activity_name not in activities:
+        raise HTTPException(status_code=404, detail="Activity not found")
+
+    activity = activities[activity_name]
+    normalized_email = email.strip().lower()
+
+    for idx, participant in enumerate(activity["participants"]):
+        if participant.strip().lower() == normalized_email:
+            del activity["participants"][idx]
+            return {"message": f"Unregistered {normalized_email} from {activity_name}"}
+
+    raise HTTPException(status_code=404, detail="Student not registered")
+
+
 if __name__ == "__main__":
     import uvicorn
 

@@ -142,3 +142,70 @@ footer {
   padding: 20px;
   color: #666;
 }
+
+.participants {
+  margin-top: 12px;
+  padding: 12px;
+  border: 1px solid #e6e6e6;
+  border-radius: 6px;
+  background: linear-gradient(180deg, #ffffff 0%, #f7f9ff 100%);
+}
+
+.participants h5 {
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: #1a237e;
+  letter-spacing: 0.2px;
+}
+
+.participants-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.participant-item {
+  margin: 6px 0;
+  color: #2a2a2a;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 6px 8px;
+  border-radius: 6px;
+}
+
+.participant-item:hover {
+  background-color: #f5f5f5;
+}
+
+.participant-value {
+  overflow-wrap: anywhere;
+}
+
+.participant-remove {
+  flex: 0 0 auto;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid #ddd;
+  background-color: white;
+  color: #1a237e;
+  font-size: 18px;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.participant-remove:hover {
+  background-color: #f9f9f9;
+  border-color: #1a237e;
+}
+
+.participants-empty {
+  margin: 0;
+  color: #666;
+  font-style: italic;
+}
